@@ -1,0 +1,213 @@
+# Formal Verification Report
+
+This report contains the output from Cadence JasperGold, proving that all SVA properties and their preconditions for the 4-bit counter have been verified successfully.
+
+```text
+#----------------------------------------
+# JasperGold Version Info
+# tool      : JasperGold 2019.09
+# platform  : Linux 3.10.0-1160.119.1.el7.x86_64
+# version   : 2019.09p002 64 bits
+# build date: 2019.11.26 18:17:27 PST
+#----------------------------------------
+# started Fri Jul 03 14:21:00 IST 2026
+# pid       : 48196
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:46848' '-style' 'windows' '-data' 'AQAAADx/////AAAAAAAAA3oBAAAAEABMAE0AUgBFAE0ATwBWAEU=' '-proj' '/home/yogeshwar/counter_fv/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/yogeshwar/counter_fv/jgproject/.tmp/.initCmds.tcl' 'run_jg.tcl'
+
+
+JasperGold Apps Analysis Session - /home/yogeshwar/counter_fv/jgproject/sessionLogs/session_0
+
+/home/yogeshwar/counter_fv/jgproject/jg.log
+INFO: successfully checked out licenses "jasper_interactive" and "jasper_fao".
+INFO: reading configuration file "/home/yogeshwar/.config/jasper/jaspergold.conf".
+% # Clear previous session data
+% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+% 
+% # Analyze the design and properties files
+% analyze -sv counter.sv counter_props.sv
+[-- (VERI-1482)] Analyzing Verilog file '/home/tools/cadence/JASPER1909/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'counter.sv'
+[-- (VERI-1482)] Analyzing Verilog file 'counter_props.sv'
+% 
+% # Elaborate the top-level module
+% elaborate -top counter
+INFO (ISW003): Top module name is "counter".
+[INFO (HIER-8002)] counter.sv(16): Disabling old hierarchical reference handler
+[INFO (VERI-1018)] counter.sv(1): compiling module 'counter'
+[INFO (VERI-1018)] counter_props.sv(1): compiling module 'counter_props'
+counter
+[<embedded>] % 
+[<embedded>] % # Setup clocks and resets for the formal engine
+[<embedded>] % clock clk
+[<embedded>] % reset -formal {rst_n == 1'b0} -bound 1
+INFO (IPM031): Clearing proof results of all properties.
+WARNING (WRS040): Current formal reset bound is different from the provided bound, and it will be overwritten.
+INFO (IRS006): Current reset condition is "rst_n".
+[<embedded>] % 
+[<embedded>] % # Prove all assertions in the design
+[<embedded>] % prove -all
+Hpcustom1: Custom engine code is hT3NZbhPPfqY2AbBQnsjfOxn6c+6e6yL+/e8fYueaMCoQAEA
+INFO (IPF036): Starting proof on task: "<embedded>", 6 properties to prove with 0 already proven/unreachable
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on (auto)
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+AMcustom2: Custom engine code is hT3N/LhP/2Dz3DrVSe2lNjiSpGmyu5Klv2ELvwL2WCQ+iY7rtAZ05ZC7TYTjerFjm57AUr54KxI2LGPAdQPc+eiMri1dI47yA50CRDdixbORmxz6cC+fZzChw2WXiQWUpM8rQS1DvRGCnsdRtkwXwn5/wC8U1oGSk2zvtl/p5mB+RV+nlTid0KCMqOgMR7nmW6XEAQA
+Ncustom3: Custom engine code is hT3NR7hPByLp3DrFSTPhwoIgCxPsqvZp21H/ym7EyTra3ms6eTBVZwJJnDhKmpN3woHootcWDlvmP07qcJRE1mUlIYMcSXUf1ExUD+hh5xN33vG9+qWOknUTM64CUjZpIk7qvPS+5IOws79QOzn5IqFPWD8RgByBUKPsu4ZUa9AO97P6cus4/HdmN+iijpsbAG5PrODXEeit9bdDREds7k7Rd2Vug5lgs78jIAEA
+Ncustom4: Custom engine code is hT3NR7hPByFp3TrFSTLhUmMH4KWtJglTyV/c51BHEeZWamnJv767nE6PCak26bd3gf3XGN3rIRheufhDieCJQVISo+gNYUKhiUedBKGtsP/a18svAnlMJZudHxDFwK5ufsyoxsIyiAeSY2oi3tEuoDHr5gw42DFKAG3PqO3CEsl8Azzdt3pl5nGA1Ifv2H02eYsFzWb/nfp8PMb3F0krE/EgBcm8TD9Div8BAA
+Tricustom5: Custom engine code is hT3Nu7hP3fiYQADBZnYcglNHp9bfd7EOeniIqP/ji8sGLQu8yhsFO+wxJ+O+R0bU8g/IewXFomyos+viQnWc2xYNYmMqpo3i40O7DaZR7qfp4YqNx26KRvQ/qx0BAA
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.001s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.N: Proof Simplification Iteration 2	[0.00 s]
+0.0.N: Proof Simplification Iteration 3	[0.00 s]
+0.0.N: Proof Simplification Iteration 4	[0.00 s]
+0.0.N: Proof Simplification Iteration 5	[0.00 s]
+0.0.PRE: Proof Simplification completed in 0.01 s
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 6
+0: ProofGrid is starting event handling
+0.0.Hp: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: A trace with 1 cycles was found. [0.02 s]
+INFO (IPF047): 0.0.N: The cover property "counter.bind_inst.a_reset:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "counter.bind_inst.a_reset"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 128 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 128 was found for the property "counter.bind_inst.a_reset" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.N: The property "counter.bind_inst.a_reset" was proven in 0.00 s.
+0.0.N: Stopped processing property "counter.bind_inst.a_reset"	[0.01 s].
+0.0.N: Starting proof for property "counter.bind_inst.a_count"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 4096 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 4096 was found for the property "counter.bind_inst.a_count" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  5	[0.00 s]
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.Hp: Lemmas used(2): ?1
+0.0.Hp: A proof was found: No trace exists. [0.03 s]
+INFO (IPF057): 0.0.Hp: The property "counter.bind_inst.a_count" was proven in 0.00 s.
+0.0.Hp: A proof was found: No trace exists. [0.03 s]
+INFO (IPF057): 0.0.Hp: The property "counter.bind_inst.a_hold" was proven in 0.00 s.
+0.0.Hp: Trace Attempt  1	[0.03 s]
+0.0.Hp: Trace Attempt  2	[0.03 s]
+0.0.Hp: A trace with 2 cycles was found. [0.03 s]
+INFO (IPF047): 0.0.Hp: The cover property "counter.bind_inst.a_count:precondition1" was covered in 2 cycles in 0.01 s.
+0.0.N: Requesting engine job to stop
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.03]
+0.0.Hp: A trace with 2 cycles was found. [0.03 s]
+INFO (IPF047): 0.0.Hp: The cover property "counter.bind_inst.a_hold:precondition1" was covered in 2 cycles in 0.01 s.
+0.0.Hp: All properties determined. [0.01 s]
+0.0.N: Stopped processing property "counter.bind_inst.a_count"	[0.01 s].
+0.0.N: All properties determined. [0.01 s]
+0.0.Hp: Exited with Success (@ 0.04 s)
+0: ProofGrid usable level: 0
+0.0.N: Exited with Success (@ 0.04 s)
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: Interrupted. [0.00 s]
+0.0.Ht: Exited with Success (@ 0.08 s)
+0.0.B: Requesting engine job to terminate
+0.0.B: Interrupted. [0.00 s]
+0.0.B: Exited with Success (@ 0.08 s)
+0: --------------------------------------------------------------
+ProofGrid Summary
+--------------------------------------------------------------
+     engines started                               :     4
+     engine jobs started                           :     4
+     times jobs never connected to ProofGrid       :     2
+     jobs where 1 minute load exceeded core count  :     2
+     jobs where 5 minute load exceeded core count  :     2
+     jobs where 15 minute load exceeded core count :     2
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.22        0.03        0.00       11.37 %
+     Hp        0.20        0.03        0.00       12.15 %
+     Ht        0.08        0.00        0.00        0.00 %
+      B        0.08        0.00        0.00        0.00 %
+    all        0.14        0.01        0.00        8.87 %
+
+    Data read    : 2.56 kiB
+    Data written : 1.43 kiB
+
+0: All pending notifications were processed.
+INFO (IPF059): Completed proof on task: "<embedded>" for proof thread 0
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 6
+                 assertions                   : 3
+                  - proven                    : 3 (100%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 0 (0%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 3
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 3 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+determined
+[<embedded>] % 
+[<embedded>] % # Report the results
+[<embedded>] % report
+
+==============================================================
+    JasperGold Verification Results
+==============================================================
+    2019.09p002 64 bits for Linux64 2.6.32-431.11.2.el6.x86_64
+    User Name: yogeshwar
+    Printed on: Friday, Jul 3, 2026 02:21:08 PM IST
+    Working Directory: /home/yogeshwar/counter_fv
+
+
+==============================================================
+RESULTS
+==============================================================
+
+----------------------------------------------------------------------------------------------------
+       Name                                        |    Result    |  Engine  |  Bound  |  Time    
+----------------------------------------------------------------------------------------------------
+
+---[ <embedded> ]-----------------------------------------------------------------------------------
+[1]   counter.bind_inst.a_reset                         proven          N      Infinite    0.002 s      
+[2]   counter.bind_inst.a_reset:precondition1           covered         N             1    0.000 s      
+[3]   counter.bind_inst.a_count                         proven          Hp     Infinite    0.003 s      
+[4]   counter.bind_inst.a_count:precondition1           covered         Hp            2    0.005 s      
+[5]   counter.bind_inst.a_hold                          proven          Hp     Infinite    0.004 s      
+[6]   counter.bind_inst.a_hold:precondition1            covered         Hp            2    0.006 s      
+INFO (IPL005): Received request to exit from the console.
+INFO: Waiting for proof threads to stop...
+INFO: Proof threads stopped.
+
+```
